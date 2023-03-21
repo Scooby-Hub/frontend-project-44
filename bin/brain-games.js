@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import {askingName} from '/root/frontend-project-44/src/cli.js';
+import askingName from '../src/cli.js';
 
 console.log('Welcome to the Brain Games!');
-askingName ();
+askingName();
