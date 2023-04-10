@@ -1,3 +1,5 @@
+brain-even: 
+	node bin/brain-even.js
 istall: 
 	npm ci
 brain-games: 
