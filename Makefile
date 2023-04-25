@@ -1,3 +1,5 @@
+brain-calc: 
+	node bin/brain-calc.js
 brain-even: 
 	node bin/brain-even.js
 istall: 
