@@ -12,7 +12,7 @@ export const greetingsFuncExp = () => {
 };
 
 export const questionFuncExp = (questionNAnswerInArr) => {
-  console.log('What is the result of the expression?');
+  console.log('What number is missing in the progression?');
   const resultAnswer = readlineSync.question(`Question: ${questionNAnswerInArr[0]}\nYour answer: `);
   if (questionNAnswerInArr[1] === resultAnswer) {
     console.log('Correct!');
