@@ -35,11 +35,12 @@ const theGame = () => {
   let counter = 0;
   for (let i = 1; i < 4; i += 1) {
     counter += questionFuncExp(gameBrain());
-    if (counter < 0) {
-      i = 3;
-    }
-    if (counter === 3) {
-      endsGameFuncExp();
+    switch (counter) {
+      case 3:
+        i = 3;
+        break;
+      default:
+        endsGameFuncExp();
     }
   }
 };
