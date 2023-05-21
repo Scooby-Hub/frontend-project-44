@@ -21,7 +21,7 @@ const gameBrain = () => {
   return [progressionStr, replacedDotsElement.toString()];
 };
 
-greetingsFuncExp();
+greetingsFuncExp('What number is missing in the progression?');
 let counter = 0;
 for (let i = 1; i < 4; i += 1) {
   counter += questionFuncExp(gameBrain());

@@ -15,6 +15,7 @@ const gameBrain = () => {
   let gcd; // НОД
   const questNumbers = `${dividedA} ${dividerB}`; // Два случайных числа для поиска НОД в формате string
 
+  // Алгоритм Евклида
   do {
     if (maxNum % minNum !== 0) {
       reminderResultD = maxNum % minNum;
@@ -29,14 +30,18 @@ const gameBrain = () => {
   return [questNumbers, gcd.toString()];
 };
 
-greetingsFuncExp();
-let counter = 0;
-for (let i = 1; i < 4; i += 1) {
-  counter += questionFuncExp(gameBrain());
-  if (counter < 0) {
-    i = 3;
+const theGame = () => {
+  greetingsFuncExp('Find the greatest common divisor of given numbers.');
+  let counter = 0;
+  for (let i = 1; i < 4; i += 1) {
+    counter += questionFuncExp(gameBrain());
+    if (counter < 0) {
+      i = 3;
+    }
+    if (counter === 3) {
+      endsGameFuncExp();
+    }
   }
-  if (counter === 3) {
-    endsGameFuncExp();
-  }
-}
+};
+
+theGame();
