@@ -21,14 +21,18 @@ const gameBrain = () => {
   return [progressionStr, replacedDotsElement.toString()];
 };
 
-greetingsFuncExp('What number is missing in the progression?');
-let counter = 0;
-for (let i = 1; i < 4; i += 1) {
-  counter += questionFuncExp(gameBrain());
-  if (counter < 0) {
-    i = 3;
+const theGame = () => {
+  greetingsFuncExp('What number is missing in the progression?');
+  let counter = 0;
+  for (let i = 1; i <= 3; i += 1) {
+    counter += questionFuncExp(gameBrain());
+    if (counter === 3) {
+      endsGameFuncExp();
+    } else if (Math.sign(counter) === -1) {
+      return 0;
+    }
   }
-  if (counter === 3) {
-    endsGameFuncExp();
-  }
-}
+  return 0;
+};
+
+theGame();
