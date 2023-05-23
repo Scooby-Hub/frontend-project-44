@@ -3,16 +3,16 @@
 import readlineSync from 'readline-sync';
 
 let userName;
-export const greetingsFuncExp = () => {
+export const greetingsFuncExp = (notation) => {
   console.log('Welcome to the Brain Games!');
   // Wait for user's response.
   userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
+  console.log(notation);
   return userName;
 };
 
 export const questionFuncExp = (questionNAnswerInArr) => {
-  console.log('What number is missing in the progression?');
   const resultAnswer = readlineSync.question(`Question: ${questionNAnswerInArr[0]}\nYour answer: `);
   if (questionNAnswerInArr[1] === resultAnswer) {
     console.log('Correct!');
