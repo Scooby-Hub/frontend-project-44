@@ -6,7 +6,7 @@ let userName;
 const askingName = () => {
   // Wait for user's response.
   userName = readlineSync.question('May I have your name? ');
-  console.log(`Hi ${userName}!`);
+  console.log(`Hello, ${userName}!`);
 };
 
 console.log('Welcome to the Brain Games!');
