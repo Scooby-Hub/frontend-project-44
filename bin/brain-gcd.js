@@ -34,15 +34,19 @@ const theGame = () => {
   greetingsFuncExp('Find the greatest common divisor of given numbers.');
   let counter = 0;
   for (let i = 1; i < 4; i += 1) {
-    counter += questionFuncExp(gameBrain());
     switch (counter) {
       case 3:
-        i = 3;
-        break;
-      default:
         endsGameFuncExp();
+        break;
+      case -1:
+      case -2:
+      case -3:
+        return 0;
+      default:
+        counter += questionFuncExp(gameBrain());
     }
   }
+  return 0;
 };
 
 theGame();
