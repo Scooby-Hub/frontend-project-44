@@ -33,7 +33,7 @@ const gameBrain = () => {
 const theGame = () => {
   greetingsFuncExp('Find the greatest common divisor of given numbers.');
   let counter = 0;
-  for (let i = 1; i < 4; i += 1) {
+  for (let i = 1; i < 5; i += 1) {
     switch (counter) {
       case 3:
         endsGameFuncExp();
