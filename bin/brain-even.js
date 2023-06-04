@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
-import gameEven from '../src/games/logic-even.js';
+import runGame from '../src/index.js';
+import myGame from '../src/games/logic-even.js';
 
-gameEven();
+runGame('Answer "yes" if the number is even, otherwise answer "no".', myGame());

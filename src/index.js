@@ -1,31 +1,30 @@
-#!/usr/bin/env node
-
 import readlineSync from 'readline-sync';
 
-let userName;
-export const greetingsFuncExp = (notation) => {
-  console.log('Welcome to the Brain Games!');
-  // Wait for user's response.
-  userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
-  console.log(notation);
+const getUserName = () => {
+  const userName = readlineSync.question('May I have your name? ');
   return userName;
 };
 
-export const questionFuncExp = (questionNAnswerInArr) => {
-  const resultAnswer = readlineSync.question(`Question: ${questionNAnswerInArr[0]}\nYour answer: `);
-  if (questionNAnswerInArr[1] === resultAnswer) {
-    console.log('Correct!');
-    return 1;
+const commonTemplate = (description, questionNAnswer) => {
+  console.log('Welcome to the Brain Games!');
+  const userName = getUserName();
+  console.log(`Hello, ${userName}!`);
+  console.log(description);
+
+  for (let i = 1; i < 4; i += 1) {
+    const resultAnswer = readlineSync.question(`Question: ${questionNAnswer[0]}\nYour answer: `);
+    if (resultAnswer === questionNAnswer[1]) {
+      console.log('Correct!');
+    }
+    if (resultAnswer !== questionNAnswer[1]) {
+      console.log(`'${resultAnswer}' is wrong answer ;(. Correct answer was '${questionNAnswer[1]}'.`);
+      console.log(`Let's try again, ${userName}!`);
+      return 0;
+    }
   }
-  if (questionNAnswerInArr[1] !== resultAnswer) {
-    console.log(`'${resultAnswer}' is wrong answer ;(. Correct answer was '${questionNAnswerInArr[1]}'.`);
-    console.log(`Let's try again, ${userName}!`);
-    return -3;
-  }
+
+  console.log(`Congratulations, ${userName}!!`);
   return 0;
 };
 
-export const endsGameFuncExp = () => {
-  console.log(`Congratulations, ${userName}!!`);
-};
+export default commonTemplate;
