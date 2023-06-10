@@ -12,7 +12,8 @@ const commonTemplate = (description, questionNAnswer) => {
   console.log(description);
   for (let i = 1; i < 4; i += 1) {
     const [question, answer] = questionNAnswer();
-    const resultAnswer = readlineSync.question(`Question: ${question}\nYour answer: `);
+    console.log(`Question: ${question}`);
+    const resultAnswer = readlineSync.question('Your answer: ');
     if (resultAnswer === answer) {
       console.log('Correct!');
     }
