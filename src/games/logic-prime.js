@@ -12,7 +12,7 @@ const gameBrain = () => {
 
   let rightAnswerInStrType;
 
-  for (let i = 1; i <= sqRootArr.length; i += 1) {
+  for (let i = 0; i < sqRootArr.length; i += 1) {
     if (randNumber % sqRootArr[i] === 0) {
       rightAnswerInStrType = 'no';
       return [question, rightAnswerInStrType];
