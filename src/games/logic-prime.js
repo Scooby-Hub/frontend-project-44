@@ -1,40 +1,25 @@
-import { greetingsFuncExp, questionFuncExp, endsGameFuncExp } from '../index.js';
-
-const randNumberFunc = (measureNum) => (Math.trunc(Math.random() * (measureNum) + 1));
-
-const fillSqRootArrA = (randNumber) => {
-  const sqRootArr = []; // Массив для чисел для проверки простое/составное
+const gameBrain = () => {
+  const randNumberFunc = (measureNum) => (Math.trunc(Math.random() * (measureNum) + 1));
+  const randNumber = randNumberFunc(100);
+  const question = randNumber.toString();
+  const sqRootArr = [];
   for (let i = 0; i < randNumber - 1; i += 1) {
     const sqrtNumber = Math.sqrt(randNumber - i);
     if (sqrtNumber === Math.trunc(sqrtNumber)) {
       sqRootArr.unshift(sqrtNumber);
     }
   }
-  return [randNumber, ...sqRootArr];
-};
 
-const gameBrain = (randNumberAndsqRootArr) => {
-  for (let i = 1; i < randNumberAndsqRootArr.length; i += 1) {
-    if (randNumberAndsqRootArr[0] % randNumberAndsqRootArr[i] === 0) {
-      return [randNumberAndsqRootArr[0], 'no'];
+  let rightAnswerInStrType;
+
+  for (let i = 1; i <= sqRootArr.length; i += 1) {
+    if (randNumber % sqRootArr[i] === 0) {
+      rightAnswerInStrType = 'no';
+      return [question, rightAnswerInStrType];
     }
   }
-  return [randNumberAndsqRootArr[0], 'yes'];
+  rightAnswerInStrType = 'yes';
+  return [question, rightAnswerInStrType];
 };
 
-const gamePrime = () => {
-  greetingsFuncExp('Answer "yes" if given number is prime. Otherwise answer "no".');
-  let counter = 0;
-  for (let i = 1; i < 4; i += 1) {
-    const sqRootArr = fillSqRootArrA(randNumberFunc(100));
-    counter += questionFuncExp(gameBrain(sqRootArr));
-    if (counter < 0) {
-      i = 3;
-    }
-    if (counter === 3) {
-      endsGameFuncExp();
-    }
-  }
-};
-
-export default gamePrime;
+export default gameBrain;
