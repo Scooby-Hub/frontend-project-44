@@ -10,14 +10,14 @@ const commonTemplate = (description, questionNAnswer) => {
   const userName = getUserName();
   console.log(`Hello, ${userName}!`);
   console.log(description);
-
   for (let i = 1; i < 4; i += 1) {
-    const resultAnswer = readlineSync.question(`Question: ${questionNAnswer[0]}\nYour answer: `);
-    if (resultAnswer === questionNAnswer[1]) {
+    const [question, answer] = questionNAnswer();
+    const resultAnswer = readlineSync.question(`Question: ${question}\nYour answer: `);
+    if (resultAnswer === answer) {
       console.log('Correct!');
     }
-    if (resultAnswer !== questionNAnswer[1]) {
-      console.log(`'${resultAnswer}' is wrong answer ;(. Correct answer was '${questionNAnswer[1]}'.`);
+    if (resultAnswer !== answer) {
+      console.log(`'${resultAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
       console.log(`Let's try again, ${userName}!`);
       return 0;
     }
