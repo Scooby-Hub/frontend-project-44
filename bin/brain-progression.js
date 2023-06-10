@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
-import gameProgression from '../src/games/logic-progression.js';
+import runGame from '../src/index.js';
+import myGame from '../src/games/logic-progression.js';
 
-gameProgression();
+runGame('What number is missing in the progression?', myGame);

@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
-import gameCalc from '../src/games/logic-calc.js';
+import runGame from '../src/index.js';
+import myGame from '../src/games/logic-calc.js';
 
-gameCalc();
+runGame('What is the result of the expression?', myGame);
