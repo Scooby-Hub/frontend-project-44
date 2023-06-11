@@ -1,5 +1,6 @@
+const randNumberFunc = (measureNum) => (Math.floor(Math.random() * (measureNum - 1)) + 2);
+
 const gameBrain = () => {
-  const randNumberFunc = (measureNum) => (Math.floor(Math.random() * (measureNum - 1)) + 2);
   const randNumber = randNumberFunc(100);
   const question = randNumber.toString();
   const sqRootArr = [];
