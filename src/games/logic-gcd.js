@@ -1,17 +1,12 @@
-const gameBrain = () => {
-  const randNumberFunc = (measureNum) => (Math.trunc(Math.random() * (measureNum + 1)));
+import getRandom from '../utils.js';
 
-  const [dividedA, dividerB] = [randNumberFunc(1000), randNumberFunc(1000)];
-  const arrOfAandB = [dividedA, dividerB];
-  let maxNum = (Math.max(...arrOfAandB));
-  let minNum = (Math.min(...arrOfAandB));
-  let reminderResultD;
+const getGcd = (max, min) => {
+  let maxNum = max;
+  let minNum = min;
   let gcd;
-  const question = `${dividedA} ${dividerB}`;
-
   do {
     if (maxNum % minNum !== 0) {
-      reminderResultD = maxNum % minNum;
+      const reminderResultD = maxNum % minNum;
       maxNum = minNum;
       minNum = reminderResultD;
     }
@@ -19,8 +14,19 @@ const gameBrain = () => {
       gcd = minNum;
     }
   } while (maxNum % minNum !== 0);
-  const rightAnswerInStrType = gcd.toString();
-  return [question, rightAnswerInStrType];
+  return gcd;
+};
+
+const gameBrain = () => {
+  const [dividedA, dividerB] = [getRandom(1, 1000), getRandom(1, 1000)];
+  const arrOfAandB = [dividedA, dividerB];
+  const maxNumber = (Math.max(...arrOfAandB));
+  const minNumber = (Math.min(...arrOfAandB));
+
+  const question = `${dividedA} ${dividerB}`;
+  const rightAnswer = getGcd(maxNumber, minNumber);
+
+  return [question, rightAnswer.toString()];
 };
 
 export default gameBrain;
