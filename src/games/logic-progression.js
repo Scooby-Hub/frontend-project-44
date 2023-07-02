@@ -16,7 +16,7 @@ const getRightAnswerFunc = (arrProgression, elementsNum) => {
 const gameBrain = () => {
   const startOfProgressiion = randNumberFunc(1, 100);
   const stepOfProgressiion = randNumberFunc(1, 10);
-  const numberOfElements = randNumberFunc(3, 10);
+  const numberOfElements = randNumberFunc(5, 10);
   const numberElementForDots = randNumberFunc(1, numberOfElements);
 
   const progressionArr = getProgression(startOfProgressiion, stepOfProgressiion, numberOfElements);
