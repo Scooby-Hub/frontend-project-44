@@ -5,14 +5,14 @@ const getUserName = () => {
   return userName;
 };
 
-const commonTemplate = (description, questionNAnswer) => {
-  const threeRounds = 3;
+const commonTemplate = (description, questionAndAnswer) => {
+  const roundsCount = 3;
   console.log('Welcome to the Brain Games!');
   const userName = getUserName();
   console.log(`Hello, ${userName}!`);
   console.log(description);
-  for (let i = 1; i <= threeRounds; i += 1) {
-    const [question, answer] = questionNAnswer();
+  for (let i = 1; i <= roundsCount; i += 1) {
+    const [question, answer] = questionAndAnswer();
     console.log(`Question: ${question}`);
     const resultAnswer = readlineSync.question('Your answer: ');
     if (resultAnswer === answer) {

@@ -1,28 +1,28 @@
-import getRandom from '../utils.js';
+import getRandomNumber from '../utils.js';
 
 const isPrime = (number) => {
-  const sqRootArr = [];
+  const squareRootArray = [];
   for (let i = 0; i < number; i += 1) {
-    const sqrtNumber = Math.sqrt(number - i);
-    if (sqrtNumber === Math.trunc(sqrtNumber)) {
-      sqRootArr.unshift(sqrtNumber);
+    const squareRootNumber = Math.sqrt(number - i);
+    if (squareRootNumber === Math.trunc(squareRootNumber)) {
+      squareRootArray.unshift(squareRootNumber);
     }
   }
 
-  for (let i = 1; i < sqRootArr.length; i += 1) {
-    if (number % sqRootArr[i] === 0) {
+  for (let i = 1; i < squareRootArray.length; i += 1) {
+    if (number % squareRootArray[i] === 0) {
       return false;
     }
   }
   return true;
 };
 
-const getRightAnswerFunc = (bool) => (bool ? 'yes' : 'no');
+const getRightAnswerFunction = (booleans) => (booleans ? 'yes' : 'no');
 
 const gameBrain = () => {
-  const randNumber = getRandom(1, 100);
-  const question = randNumber;
-  const rightAnswer = getRightAnswerFunc(isPrime(randNumber));
+  const randomNumber = getRandomNumber(1, 100);
+  const question = randomNumber;
+  const rightAnswer = getRightAnswerFunction(isPrime(randomNumber));
   return [question, rightAnswer];
 };
 

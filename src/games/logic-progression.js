@@ -1,26 +1,26 @@
-import randNumberFunc from '../utils.js';
+import getRandomNumber from '../utils.js';
 
-const getProgression = (progStart, progStep, progElementsNum) => {
-  const progressionArr = [];
-  for (let i = 0; i <= progElementsNum; i += 1) {
-    progressionArr.push(progStart + progStep * i);
+const getProgression = (progressionStart, progressionStep, progressionElementsNumber) => {
+  const progressionArray = [];
+  for (let i = 0; i <= progressionElementsNumber; i += 1) {
+    progressionArray.push(progressionStart + progressionStep * i);
   }
-  return progressionArr;
+  return progressionArray;
 };
 
-const getRightAnswerFunc = (arrProgression, elementsNum) => {
-  const answer = arrProgression[elementsNum];
+const getRightAnswerFunction = (arrayProgression, elementsNumber) => {
+  const answer = arrayProgression[elementsNumber];
   return answer;
 };
 
 const gameBrain = () => {
-  const startOfProgressiion = randNumberFunc(1, 100);
-  const stepOfProgressiion = randNumberFunc(1, 10);
-  const numberOfElements = randNumberFunc(5, 10);
-  const numberElementForDots = randNumberFunc(1, numberOfElements);
+  const startOfProgressiion = getRandomNumber(1, 100);
+  const stepOfProgressiion = getRandomNumber(1, 10);
+  const numberOfElements = getRandomNumber(5, 10);
+  const numberElementForDots = getRandomNumber(1, numberOfElements);
 
   const progressionArr = getProgression(startOfProgressiion, stepOfProgressiion, numberOfElements);
-  const rightAnswer = getRightAnswerFunc(progressionArr, numberElementForDots);
+  const rightAnswer = getRightAnswerFunction(progressionArr, numberElementForDots);
   progressionArr[numberElementForDots] = '..';
   const question = progressionArr.join(' ');
   return [question, rightAnswer.toString()];

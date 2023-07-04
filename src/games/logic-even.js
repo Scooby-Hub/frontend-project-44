@@ -1,13 +1,13 @@
-import randNumberFunc from '../utils.js';
+import getRandomNumber from '../utils.js';
 
 const isEven = (number) => (number % 2 === 0);
 
-const getRightAnswerFunc = (bool) => (bool ? 'yes' : 'no');
+const getRightAnswerFunction = (booleans) => (booleans ? 'yes' : 'no');
 
 const gameBrain = () => {
-  const randomNumber = randNumberFunc(1, 100);
+  const randomNumber = getRandomNumber(1, 100);
   const question = randomNumber.toString();
-  const rightAnswer = getRightAnswerFunc(isEven(randomNumber));
+  const rightAnswer = getRightAnswerFunction(isEven(randomNumber));
   return [question, rightAnswer];
 };
 
