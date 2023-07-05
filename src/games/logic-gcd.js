@@ -18,12 +18,11 @@ const getGcd = (maximal, minimal) => {
 };
 
 const gameBrain = () => {
-  const [dividendA, divisorB] = [getRandomNumber(1, 1000), getRandomNumber(1, 1000)];
-  const arrayOfaAndB = [dividendA, divisorB];
-  const numberMaximal = (Math.max(...arrayOfaAndB));
-  const numberMinimal = (Math.min(...arrayOfaAndB));
+  const [value1, value2] = [getRandomNumber(0, 20), getRandomNumber(0, 20)];
+  const numberMaximal = Math.max(value1, value2);
+  const numberMinimal = Math.min(value1, value2);
 
-  const question = `${dividendA} ${divisorB}`;
+  const question = `${value1} ${value2}`;
   const rightAnswer = getGcd(numberMaximal, numberMinimal);
 
   return [question, rightAnswer.toString()];

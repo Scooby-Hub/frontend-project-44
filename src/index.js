@@ -17,8 +17,7 @@ const commonTemplate = (description, questionAndAnswer) => {
     const resultAnswer = readlineSync.question('Your answer: ');
     if (resultAnswer === answer) {
       console.log('Correct!');
-    }
-    if (resultAnswer !== answer) {
+    } else {
       console.log(`'${resultAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
       console.log(`Let's try again, ${userName}!`);
       return;

@@ -17,11 +17,11 @@ const gameBrain = () => {
   const startOfProgressiion = getRandomNumber(1, 100);
   const stepOfProgressiion = getRandomNumber(1, 10);
   const numberOfElements = getRandomNumber(5, 10);
-  const numberElementForDots = getRandomNumber(1, numberOfElements);
+  const index = getRandomNumber(1, numberOfElements);
 
   const progressionArr = getProgression(startOfProgressiion, stepOfProgressiion, numberOfElements);
-  const rightAnswer = getRightAnswerFunction(progressionArr, numberElementForDots);
-  progressionArr[numberElementForDots] = '..';
+  const rightAnswer = getRightAnswerFunction(progressionArr, index);
+  progressionArr[index] = '..';
   const question = progressionArr.join(' ');
   return [question, rightAnswer.toString()];
 };
