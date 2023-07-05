@@ -20,7 +20,7 @@ const isPrime = (number) => {
 const getRightAnswerFunction = (booleans) => (booleans ? 'yes' : 'no');
 
 const gameBrain = () => {
-  const randomNumber = getRandomNumber(1, 100);
+  const randomNumber = getRandomNumber(2, 100);
   const question = randomNumber;
   const rightAnswer = getRightAnswerFunction(isPrime(randomNumber));
   return [question, rightAnswer];
